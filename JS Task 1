@@ -1,0 +1,7 @@
+function reverseNumber(num) {
+    // Convert the number to a string, reverse it, and convert it back to a number
+    return parseInt(num.toString().split('').reverse().join(''));
+}
+
+let x = 32243;
+console.log(reverseNumber(x)); // Output: 34223
