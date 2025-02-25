@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication and Division</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 300px;
+            margin: auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Multiplication and Division</h2>
+        <form id="calcForm">
+            <label for="num1">1st Number:</label>
+            <input type="number" id="num1" required>
+            
+            <label for="num2">2nd Number:</label>
+            <input type="number" id="num2" required>
+            
+            <button type="button" onclick="calculate()">Multiply</button>
+            <button type="button" onclick="calculate('divide')">Divide</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function calculate(operation = 'multiply') {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            let result;
+
+            if (operation === 'multiply') {
+                result = num1 * num2;
+            } else if (operation === 'divide') {
+                if (num2 !== 0) {
+                    result = num1 / num2;
+                } else {
+                    result = 'Cannot divide by zero';
+                }
+            }
+
+            document.getElementById('result').innerText = `The Result Is: ${result}`;
+        }
+    </script>
+</body>
+</html>
